@@ -1,0 +1,60 @@
+all:
+  w2eu:
+    name: Welcome to Europe refugees website
+    version: 2016-03-01
+    languages:
+      - eng
+      - fra
+    url: http://filer.bsf-intranet.org/w2eu/w2eu.zip
+    sha256sum: a3d3738d3d53922b3571ba772c0aea7794687cc263c28627cdff8c214967ded4
+    size: 112722208
+    type: static-site
+  clickinfoado.sn:
+    name: Click Info Ado
+    version: 2016-04-21
+    url: http://catalog.yohanboniface.me/clickinfoado.sn.zip
+    sha256sum: e9ff96f824c93943315eb0bf95bf6482e5d7be03120fe3f56efbc866045871aa
+    size: 78473936
+    type: static-site
+  lesvos.map:
+    name: Map of Lesvos Island
+    version: 2016-03-04
+    url: http://catalog.yohanboniface.me/lesvos.map.zip
+    sha256sum: 24bfdd58d0a2530cfcdfed034b5eeecff8f5145be98d9c77928778f9a709f701
+    size: 196702162
+    type: static-site
+  athens.map:
+    name: Map of Athens
+    version: 2016-03-04
+    url: http://catalog.yohanboniface.me/athens.map.zip
+    sha256sum: cc5e8c53d0d969668017a989e4d9521620df1aeef71f49f30f99cd958a5b95d8
+    size: 287325597
+    type: static-site
+  world.map:
+    name: World map
+    version: 2016-03-04
+    url: http://catalog.yohanboniface.me/world.map.zip
+    sha256sum: c24f4e5242c6c918a6164898734764ee0c0f9e1a44418f252dc319ef6b1937ea
+    size: 1782524904
+    type: static-site
+  burundi.map:
+    name: Map of Burundi
+    version: 2016-03-30
+    url: http://catalog.yohanboniface.me/burundi.map.zip
+    sha256sum: 92b923172396726d806eacc66c5cd3f6d253fdc91349331830d565a960ac7801
+    size: 1992614768
+    type: static-site
+  guinea.map:
+    name: Map of Guinea
+    version: 2016-04-11
+    url: http://catalog.yohanboniface.me/guinea.map.zip
+    sha256sum: f13dc0c5f22dbfceadade727a3d42564ae279b19a8b9f5259676c6913ff2140e
+    size: 279767639
+    type: static-site
+  senegal.map:
+    name: Map of Senegal
+    version: 2016-04-14
+    url: http://catalog.yohanboniface.me/senegal.map.zip
+    sha256sum: 4c12a9382a7ac80a6a8a11e007ebe2c31c71791cf0b89dd25f348bce3edc43a5
+    size: 533276214
+    type: static-site
