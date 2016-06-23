@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:ov="http://open.vocab.org/terms/"
+      xmlns:oz="http://openzim.org/terms/"
+      xmlns:opds="http://opds-spec.org/2010/catalog">
+  <id>urn:uuid:{{ uuid }}</id>
+
+  <link rel="start"
+        href="{{ catalog.root_url }}"
+        type="application/atom+xml;profile=opds-catalog;kind=acquisition"/>
+  <link rel="self"
+        href="{{ catalog.url }}"
+        type="application/atom+xml;profile=opds-catalog;kind=acquisition"/>
+
+  <title>Kiwix catalog</title>
+  <updated>2016-06-22T14:22:00Z</updated>
+  <author>
+    <name>Kiwix</name>
+    <uri>http://kiwix.org</uri>
+  </author>
+
+  <entry>
+    <title>Welcome to Europe refugees website</title>
+    <id>urn:uuid:6409a00b-7bf2-405e-826c-3fdff0fd0734</id>
+    <updated>2010-01-10T10:01:11Z</updated>
+    <author>
+      <name>Border Monitoring</name>
+      <uri>http://bordermonitoring.eu</uri>
+    </author>
+    <dc:language>en</dc:language>
+    <dc:language>fr</dc:language>
+    <dc:issued>2016-03-01</dc:issued>
+    <link rel="http://opds-spec.org/acquisition"
+          href="http://filer.bsf-intranet.org/w2eu/w2eu.zip"
+          type="application/zip"/>
+    <ov:hasChecksum>sha256:a3d3738d3d53922b3571ba772c0aea7794687cc263c28627cdff8c214967ded4</ov:hasChecksum>
+    <dc:extent>112722208</dc:extent>
+    <oz:intendedUse>static-site</oz:intendedUse>
+    <summary>Resources for people arriving to europe.</summary>
+    <rights>Copyright (c) 2009, Someone</rights>
+    <oz:tag>Tag1</oz:tag>
+    <oz:tag>Tag2</oz:tag>
+    <oz:tag>Tag3</oz:tag>
+    <oz:requires>application/x-shockwave-flash</oz:requires>
+    <link rel="http://opds-spec.org/image"
+          href="https://somewhere.com/4561.lrg.png"
+          type="image/png"/>
+    <link rel="http://opds-spec.org/image/thumbnail"
+          href="https://somewhere.com/4561.tmb.gif"
+          type="image/gif"/>
+  </entry>
+</feed>
