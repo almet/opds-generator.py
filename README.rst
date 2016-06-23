@@ -20,3 +20,14 @@ Here is an exemple of usage
       checksum='a3d3738d3d53922b3571ba772c0aea7794687cc263c28627cdff8c214967ded4')
 
     return to_opds(catalog, url)
+
+How do I install?
+=================
+
+Currently this code is not released on PyPI, please clone this repository.
+
+::
+
+  $ git clone https://github.com/almet/opml-generator.py.git
+  $ virtualenv venv
+  $ venv/bin/pip install -e .
