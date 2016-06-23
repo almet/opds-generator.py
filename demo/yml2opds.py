@@ -1,6 +1,6 @@
 import argparse
 import yaml
-from catalog import Catalog, to_opds
+from opml_generator import Catalog, to_opds
 
 
 def mimetype(entry):

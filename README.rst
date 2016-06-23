@@ -6,6 +6,8 @@ Here is an exemple of usage
 
 .. code-block:: python
 
+    from opml_generator import Catalog
+
     catalog = Catalog(title=title, **options)
     catalog.add_entry(
       uuid='91883979-5cd8-48a4-9dfb-2821425cd186',
