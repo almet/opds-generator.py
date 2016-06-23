@@ -6,7 +6,7 @@ Here is an exemple of usage
 
 .. code-block:: python
 
-    from opml_generator import Catalog
+    from opds_generator import Catalog
 
     catalog = Catalog(title=title, **options)
     catalog.add_entry(
@@ -28,6 +28,6 @@ Currently this code is not released on PyPI, please clone this repository.
 
 ::
 
-  $ git clone https://github.com/almet/opml-generator.py.git
+  $ git clone https://github.com/almet/opds-generator.py.git
   $ virtualenv venv
   $ venv/bin/pip install -e .
