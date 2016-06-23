@@ -18,11 +18,11 @@ def yml_to_opds(yml_file, title, url, **options):
         file_content = f.read()
     loaded = yaml.load(file_content)
     for (uuid, e) in loaded['all'].items():
-        print e['version']
         catalog.add_entry(
             uuid=uuid,
             title=e['name'],
             issued=e['version'],
+            languages=e.get('languages', ()),
             urls={mimetype(e): e['url']},
             file_size=e['size'],
             checksum=e['sha256sum'],
