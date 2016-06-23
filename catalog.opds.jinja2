@@ -7,47 +7,78 @@
   <id>urn:uuid:{{ uuid }}</id>
 
   <link rel="start"
-        href="{{ catalog.root_url }}"
+        href="{{ root_url }}"
         type="application/atom+xml;profile=opds-catalog;kind=acquisition"/>
   <link rel="self"
-        href="{{ catalog.url }}"
+        href="{{ url }}"
         type="application/atom+xml;profile=opds-catalog;kind=acquisition"/>
 
-  <title>Kiwix catalog</title>
-  <updated>2016-06-22T14:22:00Z</updated>
+  <title>{{ catalog.title }}</title>
+  {% if updated %}
+  <updated>{{ updated.isoformat() }}</updated>
+  {% endif %}
+  {% if catalog.author_name or catalog.author_url %}
   <author>
-    <name>Kiwix</name>
-    <uri>http://kiwix.org</uri>
+    {% if catalog.author_name %}
+    <name>{{ catalog.author_name }}</name>
+    {% endif %}
+    {% if catalog.author_url %}
+    <uri>{{ catalog.author_url }}</uri>
+    {% endif %}
   </author>
-
+  {% endif %}
+  {% for entry in catalog.entries %}
   <entry>
-    <title>Welcome to Europe refugees website</title>
-    <id>urn:uuid:6409a00b-7bf2-405e-826c-3fdff0fd0734</id>
-    <updated>2010-01-10T10:01:11Z</updated>
+    <title>{{ entry.title }}</title>
+    <id>urn:uuid:{{ entry.uuid }}</id>
+    <dc:issued>{{ entry.issued.isoformat() }}</dc:issued>
+    <updated>{{ entry.updated.isoformat() }}</updated>
+    {% if catalog.author_name or catalog.author_url %}
     <author>
-      <name>Border Monitoring</name>
-      <uri>http://bordermonitoring.eu</uri>
+      {% if entry.author_name %}
+      <name>{{ entry.author_name }}</name>
+      {% endif %}
+      {% if entry.author_url %}
+      <uri>{{ entry.author_url }}</uri>
+      {% endif %}
     </author>
-    <dc:language>en</dc:language>
-    <dc:language>fr</dc:language>
-    <dc:issued>2016-03-01</dc:issued>
+    {% endif %}
+    {% for language in entry.languages %}
+    <dc:language>{{ language }}</dc:language>
+    {% endfor %}
+    {% for mimetype, url in entry.urls.items() %}
     <link rel="http://opds-spec.org/acquisition"
-          href="http://filer.bsf-intranet.org/w2eu/w2eu.zip"
-          type="application/zip"/>
-    <ov:hasChecksum>sha256:a3d3738d3d53922b3571ba772c0aea7794687cc263c28627cdff8c214967ded4</ov:hasChecksum>
-    <dc:extent>112722208</dc:extent>
-    <oz:intendedUse>static-site</oz:intendedUse>
-    <summary>Resources for people arriving to europe.</summary>
-    <rights>Copyright (c) 2009, Someone</rights>
-    <oz:tag>Tag1</oz:tag>
-    <oz:tag>Tag2</oz:tag>
-    <oz:tag>Tag3</oz:tag>
-    <oz:requires>application/x-shockwave-flash</oz:requires>
+          href="{{ url }}"
+          type="{{ mimetype }}"/>
+    {% endfor %}
+    {% if entry.checksum %}
+    <ov:hasChecksum>{{entry.checksum_algorithm}}:{{ entry.checksum }}</ov:hasChecksum>
+    {% endif %}
+    {% if entry.file_size %}
+    <dc:extent>{{ entry.file_size }}</dc:extent>
+    {% endif %}
+    {% if entry.summary %}
+    <summary>{{ entry.summary }}</summary>
+    {% endif %}
+    {% for right in entry.rights %}
+    <rights>{{ right }}</rights>
+    {% endfor %}
+    {% for tag in entry.tags %}
+    <oz:tag>{{ tag }}</oz:tag>
+    {% endfor %}
+    {% for required_mimetype in entry.requires_mimetypes %}
+    <oz:requires>{{ required_mimetype }}</oz:requires>
+    {% endfor %}
+    {% if entry.image %}
     <link rel="http://opds-spec.org/image"
-          href="https://somewhere.com/4561.lrg.png"
-          type="image/png"/>
+    href="{{ image }}"
+    type="{{ image|mimetype }}"/>
+    {% endif %}
+    {% if entry.thumbnail %}
     <link rel="http://opds-spec.org/image/thumbnail"
-          href="https://somewhere.com/4561.tmb.gif"
-          type="image/gif"/>
+    href="{{ thumbnail }}"
+    type="{{ thumbnail|mimetype }}"/>
+    {% endif %}
   </entry>
+  {% endfor %}
 </feed>
