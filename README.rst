@@ -2,7 +2,9 @@ OPDS generator
 ##############
 
 This is a simple OPDS generator in python.
-Here is an exemple of usage::
+Here is an exemple of usage
+
+.. code-block:: python
 
     catalog = Catalog(title=title, **options)
     catalog.add_entry(
